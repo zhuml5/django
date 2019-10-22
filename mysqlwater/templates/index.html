@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>邦文水质</title>
+</head>
+<body>
+    <form action="test/" method="post">
+        {% csrf_token %}
+    搜索设备<input name="mn"type="text"/><br>
+        搜索条数<input name="num"type="text"/><br>
+    <input type="submit">
+        <br>
+    </form>
+    <span>设备列表</span>
+    <style type="text/css">
+        span {
+            color:yellow;
+            background-color:blue
+        }
+    </style>
+    <br>
+
+    {% for i in index_list %}
+    <tr>
+        <li><a href="http://{{ ip }}:8000/数据展示/?mn={{i}}&num=10">{{ i }}</a></li>
+    </tr>
+{% endfor %}
+
+</body>
+</html>
